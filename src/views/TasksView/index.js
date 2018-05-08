@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 // importujemy metody z api
 import {getAllTasksByMyEmail, getAllTaskForMe} from '../../api/tasks.api';
 
+
+// importujemy komponenty składowe
+import {TasksAssingedToMe} from './components'
+
+
+
 class TasksView extends Component {
     // deklaracja stanu komponentu
     state = {
@@ -21,21 +27,41 @@ class TasksView extends Component {
 
         const [tasksCreatedByMe, tasksAssignedToMe] = data;
 
-        console.log('tasks data', tasksCreatedByMe,tasksAssignedToMe)
         // const tasksCreatedByMe = data[0];
         // const tasksAssignedToMe = data[1];
-        
 
+        console.log('tasks data', tasksCreatedByMe, tasksAssignedToMe);
 
+        this.setState({
+            tasksCreatedByMe, 
+            tasksAssignedToMe,
+            imBusy:false
+        })
+
+        // this.setState({
+        //     tasksCreatedByMe:tasksCreatedByMe,
+        //     tasksAssignedToMe:tasksAssignedToMe
+        // })
+
+       
         // handle data
     })
 
   }
 
   render() {
+
+    console.log('this.state',this.state)
+    if(this.state.imBusy){
+        return (
+            <span>JESTEM ZAJĘTY</span>
+        )
+    }
+
     return (
         <div>
             <h2>TasksView</h2>
+            <TasksAssingedToMe {...this.state.tasksAssignedToMe}/>
         </div>
     );
   }
