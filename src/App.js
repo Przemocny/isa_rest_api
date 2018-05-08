@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {getAllUsers} from './api/users.api'
+import {getAllTasks} from './api/tasks.api'
 
 
 // JIRA !!
@@ -14,11 +15,11 @@ import {getAllUsers} from './api/users.api'
 // dodawać, usuwać, przypisywać taski, musi mieć zdjęcie, przypisany mail, 
 // uprawnienia, 
 
-
 class App extends Component {
 
   componentDidMount(){
     getAllUsers();
+    getAllTasks();
   }
 
   render() {
