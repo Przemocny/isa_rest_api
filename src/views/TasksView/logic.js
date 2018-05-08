@@ -8,7 +8,6 @@ export const assignTasksTo = (task_id,refresh) => {
 }
 export const logHoursToTask = (task_id,refresh) => {
     // kto loguje godziny i ile godzin
-    
     logHours(task_id).then(()=>{
         refresh()
     })

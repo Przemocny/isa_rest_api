@@ -75,8 +75,11 @@ export const changeDescriptionOfTask = task_id => {
     }
   }
 
-  if (description && description.length) {
+  if (description) {
     return fetch(url, fetchConfig).then(fetchLogger)
+  }
+  else{
+    return Promise.resolve('')
   }
 }
 
@@ -99,8 +102,11 @@ export const changeStatusOfTask = task_id => {
     }
   }
 
-  if (status && status.length) {
+  if (status ) {
     return fetch(url, fetchConfig).then(fetchLogger)
+  }
+  else{
+    return Promise.resolve('')
   }
 }
 
@@ -120,8 +126,11 @@ export const assignTaskTo = task_id => {
     }
   }
 
-  if (assignee && assignee.length) {
+  if (assignee ) {
     return fetch(url, fetchConfig).then(fetchLogger)
+  }
+  else{
+    return Promise.resolve('')
   }
 }
 
@@ -146,7 +155,10 @@ export const logHours = task_id => {
     }
   }
 
-  if (logger && logger.length) {
+  if (logger) {
     return fetch(url, fetchConfig).then(fetchLogger)
+  }
+  else{
+    return Promise.resolve('')
   }
 }
