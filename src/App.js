@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {getAllUsers} from './api/users.api'
 
 class App extends Component {
+  componentDidMount(){
+    getAllUsers();
+  }
   render() {
     return (
       <div className="App">
