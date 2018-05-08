@@ -32,7 +32,7 @@ const TasksAssingedToMe = ({data, refresh}) => {
                   <button
                     className='btn btn-default'
                     onClick={() => {
-                      logic.assignTasksTo()
+                      logic.assignTasksTo(task._id, refresh)
                     }}
                   >
                     Przypisz taska
@@ -40,7 +40,7 @@ const TasksAssingedToMe = ({data, refresh}) => {
                   <button
                     className='btn btn-default'
                     onClick={() => {
-                      logic.changeStatus()
+                      logic.changeStatus(task._id, refresh)
                     }}
                   >
                     Zmień status
@@ -56,7 +56,7 @@ const TasksAssingedToMe = ({data, refresh}) => {
                   <button
                     className='btn btn-default'
                     onClick={() => {
-                      logic.logHoursToTask()
+                      logic.logHoursToTask(task._id, refresh)
                     }}
                   >
                     Zaloguj godziny

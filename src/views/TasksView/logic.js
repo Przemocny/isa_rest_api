@@ -1,18 +1,23 @@
-import {changeDescriptionOfTask} from '../../api/tasks.api'
+import {changeDescriptionOfTask, changeStatusOfTask, assignTaskTo, logHours} from '../../api/tasks.api'
 
-export const assignTasksTo = data => {
+export const assignTasksTo = (task_id,refresh) => {
     // do kogo przypisujemy
-  alert('assignTasksTo')
+    assignTaskTo(task_id).then(()=>{
+        refresh()
+    })
 }
-export const logHoursToTask = data => {
+export const logHoursToTask = (task_id,refresh) => {
     // kto loguje godziny i ile godzin
     
-  alert('logHoursToTask')
+    logHours(task_id).then(()=>{
+        refresh()
+    })
 }
-export const changeStatus = data => {
+export const changeStatus = (task_id,refresh) => {
     // na jaki status chce zmienić
-    
-  alert('changeStatus')
+    changeStatusOfTask(task_id).then(()=>{
+        refresh()
+    })
 }
 export const changeDescription = (task_id, refresh) => {
     // na jaki opis chce zmienić
