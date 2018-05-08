@@ -61,3 +61,30 @@ export const assignTaskToUser = task_id => {
     .then(fetchLogger)
   }
 }
+
+
+
+export const changeDescriptionOfTask = task_id => {
+  // funkcja dostępna w obiektu window
+  // do przypisywania taska do innych osób
+
+  const description = prompt('zmień opis taska')
+
+  const url = `${TASKS_RESOURCE_PATH}/${task_id}/change-description`
+  // wskazanie zasobu poprzez url
+
+  const fetchConfig = {
+    method: 'PATCH',
+    body: JSON.stringify({
+      "description": description
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  if (description.length) {
+   return fetch(url, fetchConfig)
+    .then(fetchLogger)
+  }
+}

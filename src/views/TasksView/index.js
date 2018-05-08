@@ -6,6 +6,7 @@ import {getAllTasksByMyEmail, getAllTaskForMe} from '../../api/tasks.api'
 // importujemy komponenty składowe
 import {TasksAssingedToMe} from './components'
 
+
 class TasksView extends Component {
   // deklaracja stanu komponentu
   state = {
@@ -47,31 +48,7 @@ class TasksView extends Component {
   }
 
   componentDidMount () {
-    // promise.all([prom1,prom2,...]) -> wykonaj wszystkie promisy a potem zrób .then
-    Promise.all([
-      getAllTasksByMyEmail('Przemek'),
-      getAllTaskForMe('Przemek')
-    ]).then(data => {
-      const [tasksCreatedByMe, tasksAssignedToMe] = data
-
-      // const tasksCreatedByMe = data[0];
-      // const tasksAssignedToMe = data[1];
-
-      console.log('tasks data', tasksCreatedByMe, tasksAssignedToMe)
-
-      this.setState({
-        tasksCreatedByMe,
-        tasksAssignedToMe,
-        imBusy: false
-      })
-
-      // this.setState({
-      //     tasksCreatedByMe:tasksCreatedByMe,
-      //     tasksAssignedToMe:tasksAssignedToMe
-      // })
-
-      // handle data
-    })
+    this.refresh()
   }
 
   render () {
@@ -91,7 +68,10 @@ class TasksView extends Component {
         >
           Odśwież
         </button>
-        <TasksAssingedToMe {...this.state.tasksAssignedToMe} />
+        <TasksAssingedToMe {...this.state.tasksAssignedToMe} 
+        refresh={()=>{
+            this.refresh()
+        }}/>
       </div>
     )
   }
