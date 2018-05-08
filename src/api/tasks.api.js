@@ -1,4 +1,4 @@
-import {fetchLogger} from './users.api'
+import {fetchLogger} from './utils.api'
 
 const TASKS_RESOURCE_PATH = 'http://tasks.isa.valuepoint.pl/tasks';
 
