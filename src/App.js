@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+// widoki
+import TasksView from './views/TasksView'
+
 import logo from './logo.svg';
 import './App.css';
 import {getAllUsers} from './api/users.api'
@@ -18,20 +22,14 @@ import {getAllTasks} from './api/tasks.api'
 class App extends Component {
 
   componentDidMount(){
-    getAllUsers();
-    getAllTasks();
+    // getAllUsers();
+    // getAllTasks();
   }
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+       <TasksView/>
       </div>
     );
   }
